@@ -216,23 +216,24 @@ function iniciarApp (){
             toast.show();
         }
 
-        function ObtenerFavoritos(){
-            const favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? [];
-            if(favoritos.length) {
-                mostrarRecetas(favoritos);
-                return 
-            }else{
-            const noFavorito = document.createElement('p');
-            noFavorito.textContent = 'No hay favoritos aun';
-            noFavorito.classList.add('fs-4','text-center','font-bold','mt-5');
-            favoritosDiv.appendChild(noFavorito);
-            }
-        }
 
         function limpiarHTML(selector){
             while(selector.firstChild){
                 selector.removeChild(selector.firstChild);
             }
+        }
+    }
+
+    function ObtenerFavoritos(){
+        const favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? [];
+        if(favoritos.length) {
+            mostrarRecetas(favoritos);
+            return 
+        }else{
+        const noFavorito = document.createElement('p');
+        noFavorito.textContent = 'No hay favoritos aun';
+        noFavorito.classList.add('fs-4','text-center','font-bold','mt-5');
+        favoritosDiv.appendChild(noFavorito);
         }
     }
 }
